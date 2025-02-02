@@ -1,0 +1,265 @@
+body {
+    background-color: rgb(220, 220, 220);
+    font-family: "Plus Jakarta Sans", serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    background-image: url(https://i.pinimg.com/736x/ce/c0/5a/cec05a890ea942b3cd3f946f2e2c6433.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: soft-light;
+    background-color: rgba(236, 236, 236, 0.999);
+}
+
+.root-body {
+    background-image: url(https://i.pinimg.com/736x/ce/c0/5a/cec05a890ea942b3cd3f946f2e2c6433.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: hard-light;
+}
+
+a {
+    text-decoration: none;
+}
+
+.b-user {
+    color: rgb(255, 61, 92);
+}
+
+.container {
+    flex: 1;
+    margin-left: 18rem;
+}
+
+img {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.text {
+    min-width: 189px;
+    field-sizing: content;
+}
+
+h1, h2, h3, .navbar-brand {
+    color: rgb(255, 61, 92);
+    transition: 0.2s;
+}
+
+h4, h5 {
+    color: rgb(80, 40, 40);
+}
+
+.root-h2 {
+    color: rgb(80, 40, 40);
+}
+
+.navbar {
+    height: 5rem;
+    background-color: whitesmoke;
+}
+
+.navbarUser {
+    padding-left: 1122px;
+}
+
+.navlog {
+    padding-left: 30px;
+}
+
+.nav-link:hover {
+    color: rgb(255, 61, 92);
+    transform: scale(1.02);
+}
+
+.nav-link {
+    color: rgb(85, 85, 85);
+    transition: 0.12s;
+}
+
+.navl:hover {
+    color: rgb(85, 85, 85);
+    transform: none;
+}
+
+.navl {
+    color: rgb(85, 85, 85);
+    transition: none;
+}
+
+.nav-air {
+    padding-right: 60px;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 1rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: rgb(80, 40, 40);
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: rgb(255, 61, 92);
+}
+
+.f-info-links, .f-info-socials, .f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-links a {
+    margin: 1.1rem;
+}
+
+.f-info-socials i {
+    font-size: 1.5 rem;
+    margin: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* Cards */
+.card {
+    border: none !important;
+    min-width: 300px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.card-img-top {
+    border-radius: 30px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    padding: 1.2rem;
+    transition: 0.4s;
+}
+
+.card_text {
+    transition: 0.4s;
+}
+
+.card-body {
+    padding: 0 !important;
+    margin: 1.2rem;
+}
+
+.card_text p {
+    font-weight: 400;
+}
+
+
+/* Card Effects */
+.card:hover .card-img-top {
+    opacity: 0.6;
+    transform: scale(1.08);
+}
+.card:hover .card_text {
+    position: relative;
+    scale: 1.06;
+}
+
+.btn-prop {
+    background-color: rgb(255, 61, 92);
+    border: none;
+}
+
+.del-btn {
+    border: none;
+}
+
+.show-img {
+    height: 585px;
+    margin-bottom: 0;
+}
+
+.show-card {
+    width: 875px;
+}
+
+.btns-class {
+    display: flex;
+}
+
+.btn-r {
+    padding-left: 9px;
+}
+
+#togglePassword:hover {
+    background-color: rgb(255, 61, 92);
+}
+
+/* Map */
+
+#map {
+    height: 490px;
+    width: 94vh;
+}
+
+/* Filters */
+
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter {
+    text-align: center;
+    margin-left: 2.32rem;
+    opacity: 0.6;
+    transition: 0.4s;
+    font-size: 1.05rem;
+}
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.d-tax {
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+}
+.form-check-label {
+    margin-left: 0.2rem;
+}
+.form-check-label:hover {
+    cursor: pointer;
+}
+.form-check-input:hover {
+    cursor: pointer;
+}
+.tax-info {
+    display: none;
+}
+.all-filters {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 80px;
+    z-index: 1;
+    background-color: whitesmoke;
+    padding-top: 1.2rem;
+    padding-bottom: 0.4rem;
+}
+.fa-solid, .fa-brands {
+    font-size: 1.5rem;
+}
