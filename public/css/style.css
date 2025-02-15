@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 
-    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/w_800/v1739519850/png-clipart-airbnb-logo-business-braintree-management-business-text-service_yau5gc.png);
+    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/v1739576354/AirBNB-BG_ix5gsj.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -15,13 +15,22 @@ body {
 }
 
 .root-body {
-    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/w_800/v1739519850/png-clipart-airbnb-logo-business-braintree-management-business-text-service_yau5gc.png);
+    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/v1739576354/AirBNB-BG_ix5gsj.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: hard-light;
 }
+
+.root-h1 {
+    margin-left: 9rem;
+}
+
+.root-h2 {
+    margin-left: 17rem;
+}
+
 
 a {
     text-decoration: none;
