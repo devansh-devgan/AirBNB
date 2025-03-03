@@ -29,6 +29,17 @@
                 </div>
                 <br>
                 <div class="mb-3">
+                    <label for="category" class="form-label">Choose a Category</label>
+                    <select id="category" class="form-select" name="listing[category]" id="category" required>
+                        <% let categories = ['Rooms', 'Iconic Cities', 'Mountains', 'Castles', 'Pools', 'Camping', 'Farms', 'Beach', 'Nature', 'Homes']; %>
+                        <% categories.forEach(category => { %>
+                            <option value="<%= category %>" <%= listing.category === category ? "selected" : "" %>><%= category %></option>
+                        <% }) %>
+                    </select>
+                    <div class="invalid-feedback">Please Select an Option</div>
+                </div>
+                <br>
+                <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
                     <input class="form-control" name="listing[price]" placeholder="Enter Price" value="<%=listing.price%>" type="number" required>
                     <div class="invalid-feedback">Please Enter a valid Price</div>

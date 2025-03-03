@@ -4,7 +4,7 @@
             <br>
             <h3>Create a New Listing</h3>
             <br>
-            <form method="post" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data" >
+            <form method="post" action="/listings" id="newForm" class="needs-validation" novalidate enctype="multipart/form-data" >
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input class="text form-control" name="listing[title]" placeholder="Enter Title" type="text" maxlength="30" required>
@@ -20,6 +20,25 @@
                 <div class="mb-3">
                     <label for="image" class="form-label">Upload Image</label>
                     <input class="form-control" name="listing[image]" type="file" required>
+                    <div class="invalid-feedback">Please Upload an Image</div>
+                </div>
+                <br>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Choose a Category</label>
+                    <select id="category" class="form-select" name="listing[category]" id="category" required>
+                        <option value="" selected disabled>Select an Option</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Iconic Cities">Iconic Cities</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Pools">Pools</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Farms">Farms</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Nature">Nature</option>
+                        <option value="Homes">Homes</option>
+                    </select>
+                    <div class="invalid-feedback">Please Select an Option</div>
                 </div>
                 <br>
                 <div class="mb-3">

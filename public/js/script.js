@@ -25,3 +25,17 @@
     const type = password.type === "password" ? "text" : "password";
     password.type = type;
   });
+
+  document.getElementById("newForm").addEventListener("submit", function(event) {
+    const select = document.getElementById("category");
+
+    if (select.value === "") {
+      select.classList.add("is-invalid");
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      select.classList.remove("is-invalid");
+    }
+
+    this.classList.add("was-validated");
+  });
