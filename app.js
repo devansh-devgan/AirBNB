@@ -23,8 +23,8 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 
-const MONGO_URL = 'mongodb://127.0.0.1:27017/airbnb';//local database
-// const MONGO_URL = process.env.ATLASDB_URL;//Atlas Database
+// const MONGO_URL = 'mongodb://127.0.0.1:27017/airbnb';//local database
+const MONGO_URL = process.env.ATLASDB_URL;//Atlas Database
 
 main().then(() => {
     console.log("Connected to AirBNB Database");
