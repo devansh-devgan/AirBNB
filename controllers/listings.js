@@ -12,9 +12,16 @@ module.exports.index = async (req,res) => {
     if (req.query.category) {
         filter.category = req.query.category;
     }
-
+    if (req.query.search) {
+        const searchRegex = new RegExp(req.query.search, "i");
+        filter.$or = [
+            { title: searchRegex },
+            { location: searchRegex },
+            { country: searchRegex }
+        ];
+    }
     const allListings = await Listing.find(filter);
-    res.render("listings/index.ejs", {allListings, selectedCategory: req.query.category || "" });
+    res.render("listings/index.ejs", {allListings, selectedCategory: req.query.category || "", searchQuery: req.query.search || "", page: "index" });
 }
 
 module.exports.new = (req,res) => {

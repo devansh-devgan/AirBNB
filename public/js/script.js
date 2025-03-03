@@ -39,3 +39,23 @@
 
     this.classList.add("was-validated");
   });
+
+
+
+  function filterListings(category) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentCategory = urlParams.get('category');
+    if (currentCategory === category) {
+        urlParams.delete('category'); // Remove category if already selected (reset filter)
+    } else {
+        urlParams.set('category', category); // Set new category
+    }
+    if (!urlParams.has('search')) {
+        urlParams.set('search', ''); // Ensure search query exists in URL
+    }
+    window.location.href = `/listings?${urlParams.toString()}`;
+  }
+
+  function resetFilters() {
+    window.location.href = "/listings"; // Redirects to clear filters
+  }

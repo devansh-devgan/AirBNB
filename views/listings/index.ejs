@@ -2,22 +2,22 @@
     <div class="all-filters">
         <div id="filters" >
             <% let categories = [
-                { name: "Rooms", icon: "fa-bed" },
-                { name: "Iconic Cities", icon: "fa-mountain-city" },
-                { name: "Mountains", icon: "fa-mountain" },
+                { name: "Rooms", icon: "fa-solid fa-bed" },
+                { name: "Iconic Cities", icon: "fa-solid fa-mountain-city" },
+                { name: "Mountains", icon: "fa-solid fa-mountain" },
                 { name: "Castles", icon: "fa-brands fa-fort-awesome" },
-                { name: "Pools", icon: "fa-water-ladder" },
-                { name: "Camping", icon: "fa-campground" },
-                { name: "Farms", icon: "fa-wheat-awn" },
-                { name: "Beach", icon: "fa-umbrella-beach" },
-                { name: "Nature", icon: " fa-brands fa-pagelines" },
-                { name: "Homes", icon: "fa-house" }
+                { name: "Pools", icon: "fa-solid fa-water-ladder" },
+                { name: "Camping", icon: "fa-solid fa-campground" },
+                { name: "Farms", icon: "fa-solid fa-wheat-awn" },
+                { name: "Beach", icon: "fa-solid fa-umbrella-beach" },
+                { name: "Nature", icon: "fa-brands fa-pagelines" },
+                { name: "Homes", icon: "fa-solid fa-house" }
             ]; %>
         
             <% categories.forEach(category => { %>
                 <div class="filter <%= category.name === selectedCategory ? 'active-filter' : '' %>" 
                      onclick="filterListings('<%= category.name %>')">
-                    <div><i class="fa-solid <%= category.icon %>"></i></div>
+                    <div><i class="<%= category.icon %>"></i></div>
                     <p><%= category.name %></p>
                 </div>
             <% }) %>
@@ -27,12 +27,13 @@
             <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
         </div>
     </div>
+    <%- include("../includes/flash.ejs") %>
     <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-xs-2">
         <% if (allListings.length === 0) { %>
             <div class="no-filter col-8 text-center">
-                <h2 class="text-muted">No BNBs found for <b>"<%= selectedCategory %>"</b></h2>
-                <br>
-                <button class="btn btn-secondary" onclick="window.location.href='/listings'">Reset Filters</button>
+                <h2 class="text-muted">No BNBs found for <b style="color: rgb(255, 61, 92);">"<%= selectedCategory || searchQuery %>"</b></h2>
+                <!-- <br> -->
+                <!-- <button class="btn btn-secondary" onclick="window.location.href='/listings'">Reset Filters</button> -->
             </div>
         <% } else { %>
             <% for (let listing of allListings) { %>
@@ -67,15 +68,5 @@
                 }
             }
         })
-
-
-        function filterListings(category) {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get("category") === category) {
-            window.location.href = "/listings"; // Reset filter if clicked again
-        } else {
-            window.location.href = `/listings?category=${category}`;
-        }
-        }
-
+    
     </script>

@@ -73,8 +73,16 @@ h4, h5 {
     background-color: whitesmoke;
 }
 
+.navbar-brand {
+    margin-left: 15px;
+}
+
 .navbarUser {
-    padding-left: 1122px;
+    padding-left: 100px;
+}
+
+.navbar-collapse {
+    margin-left: 60px;
 }
 
 .navlog {
@@ -189,9 +197,42 @@ footer {
     scale: 1.06;
 }
 
+.searchBar {
+    margin-left: 10rem;
+}
+.search-input {
+    width: 600px;
+}
+.search-btn {
+    background-color: rgb(255, 61, 92);
+    border: none;
+    transition: 0.2s;
+}
+.search-btn:hover {
+    background-color: rgb(255, 61, 92);
+    opacity: 0.8;
+}
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+.search-btn i {
+    font-size: 1rem;
+    transition: 0.2s;
+}
+.search-btn:hover i {
+    font-size: 1.2rem;
+}
 .btn-prop {
     background-color: rgb(255, 61, 92);
     border: none;
+}
+
+.reset-btn {
+    margin-right: 2rem;
 }
 
 .del-btn {

@@ -83,6 +83,9 @@ app.use((req,res,next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     res.locals.currUser = req.user;
+    res.locals.searchQuery = req.query.search || ""; // Set searchQuery globally
+    res.locals.selectedCategory = req.query.category || ""; // Set selectedCategory globally
+    res.locals.page = req.path.includes("/listings") ? "index" : "";  //page is passed everywhere
     next();
 })
 
