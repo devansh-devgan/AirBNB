@@ -1,46 +1,26 @@
 <% layout("/layouts/boilerplate.ejs") %>
     <div class="all-filters">
-        <div id="filters">
-            <div class="filter">
-                <div><i class="fa-solid fa-bed"></i></div>
-                <p>Rooms</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-solid fa-mountain-city"></i></div>
-                <p>Iconic Cities</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-solid fa-mountain"></i></div>
-                <p>Mountains</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-brands fa-fort-awesome"></i></div>
-                <p>Castles</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-solid fa-water-ladder"></i></div>
-                <p>Pools</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-solid fa-campground"></i></div>
-                <p>Camping</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-solid fa-wheat-awn"></i></div>
-                <p>Farms</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-solid fa-umbrella-beach"></i></div>
-                <p>Beach</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-brands fa-pagelines"></i></div>
-                <p>Nature</p>
-            </div>
-            <div class="filter">
-                <div><i class="fa-solid fa-house"></i></div>
-                <p>Homes</p>
-            </div>
+        <div id="filters" >
+            <% let categories = [
+                { name: "Rooms", icon: "fa-bed" },
+                { name: "Iconic Cities", icon: "fa-mountain-city" },
+                { name: "Mountains", icon: "fa-mountain" },
+                { name: "Castles", icon: "fa-brands fa-fort-awesome" },
+                { name: "Pools", icon: "fa-water-ladder" },
+                { name: "Camping", icon: "fa-campground" },
+                { name: "Farms", icon: "fa-wheat-awn" },
+                { name: "Beach", icon: "fa-umbrella-beach" },
+                { name: "Nature", icon: " fa-brands fa-pagelines" },
+                { name: "Homes", icon: "fa-house" }
+            ]; %>
+        
+            <% categories.forEach(category => { %>
+                <div class="filter <%= category.name === selectedCategory ? 'active-filter' : '' %>" 
+                     onclick="filterListings('<%= category.name %>')">
+                    <div><i class="fa-solid <%= category.icon %>"></i></div>
+                    <p><%= category.name %></p>
+                </div>
+            <% }) %>
         </div>
         <div class="form-check form-switch form-check-reverse d-tax">
             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
@@ -48,24 +28,33 @@
         </div>
     </div>
     <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-xs-2">
-        <% for (let listing of allListings) { %>
-            <a href="/listings/<%=listing._id%>">
-                <div class="card col" >
-                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem" >
-                    <div class="card-body">
-                        <p class="card_text">
-                            <b> <%= listing.title %> </b> <br>
-                            &#8377; <%=listing.price.toLocaleString("en-IN")%>/Night
-                            <i class="tax-info">&nbsp;+ 18% GST =</i><br>
-                            <b class="tax-info">&#8377;<%= (listing.price*1.18).toLocaleString("en-IN") %></b>
-                        </p>
+        <% if (allListings.length === 0) { %>
+            <div class="no-filter col-8 text-center">
+                <h2 class="text-muted">No listings found for <b>"<%= selectedCategory %>"</b></h2>
+                <br>
+                <button class="btn btn-secondary" onclick="window.location.href='/listings'">Reset Filters</button>
+            </div>
+        <% } else { %>
+            <% for (let listing of allListings) { %>
+                <a href="/listings/<%=listing._id%>">
+                    <div class="card col">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem">
+                        <div class="card-body">
+                            <p class="card_text">
+                                <b><%= listing.title %></b> <br>
+                                &#8377; <%= listing.price.toLocaleString("en-IN") %>/Night
+                                <i class="tax-info">&nbsp;+ 18% GST =</i><br>
+                                <b class="tax-info">&#8377;<%= (listing.price * 1.18).toLocaleString("en-IN") %></b>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            <% } %>
         <% } %>
     </div>
 
     <script>
+
         let taxSwitch = document.getElementById("flexSwitchCheckDefault");
         taxSwitch.addEventListener("click", ()=> {
             let taxInfo = document.getElementsByClassName("tax-info")
@@ -78,4 +67,15 @@
                 }
             }
         })
+
+
+        function filterListings(category) {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("category") === category) {
+            window.location.href = "/listings"; // Reset filter if clicked again
+        } else {
+            window.location.href = `/listings?category=${category}`;
+        }
+        }
+
     </script>

@@ -235,13 +235,21 @@ footer {
 .filter {
     text-align: center;
     margin-left: 2.32rem;
-    opacity: 0.6;
+    opacity: 0.5;
     transition: 0.4s;
     font-size: 1.05rem;
 }
 .filter:hover {
     opacity: 1;
     cursor: pointer;
+}
+.active-filter {
+    opacity: 1;
+    transform: scale(1.2);
+}
+.no-filter {
+    margin-top: 4.6rem;
+    margin-left: 32rem;
 }
 .d-tax {
     margin-bottom: 1rem;

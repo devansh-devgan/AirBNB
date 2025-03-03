@@ -8,8 +8,13 @@ const cloudinary = require("cloudinary").v2;
 
 
 module.exports.index = async (req,res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", {allListings});
+    let filter = {};
+    if (req.query.category) {
+        filter.category = req.query.category;
+    }
+
+    const allListings = await Listing.find(filter);
+    res.render("listings/index.ejs", {allListings, selectedCategory: req.query.category || "" });
 }
 
 module.exports.new = (req,res) => {
@@ -76,7 +81,7 @@ module.exports.update = async (req,res) => {
     listing.geometry = coordinates.body.features[0].geometry;
 
     let savedListing = await listing.save();
-    console.log(savedListing);
+    // console.log(savedListing);
 
     if(typeof req.file !== "undefined"){
         cloudinary.uploader.destroy(listing.image.filename, {invalidate: true});
