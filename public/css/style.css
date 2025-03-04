@@ -209,6 +209,11 @@ footer {
     border: none;
     transition: 0.2s;
 }
+.search-btn:focus, .search-btn:active {
+    background-color: #dc35467e !important; /* Change to your preferred color */
+    border-color: #dc35467e !important;
+    box-shadow: none !important;
+}
 .search-btn:hover {
     background-color: rgb(255, 61, 92);
     opacity: 0.8;

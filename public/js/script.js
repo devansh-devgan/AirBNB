@@ -40,8 +40,6 @@
     this.classList.add("was-validated");
   });
 
-
-
   function filterListings(category) {
     const urlParams = new URLSearchParams(window.location.search);
     const currentCategory = urlParams.get('category');
