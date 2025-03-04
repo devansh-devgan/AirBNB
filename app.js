@@ -100,6 +100,16 @@ app.get("/", (req,res) => {
     res.render("listings/root.ejs");
 })
 
+//Privacy route
+app.get("/privacy", (req,res) => {
+    res.render("privacy.ejs");
+})
+
+//Terms route
+app.get("/terms", (req,res) => {
+    res.render("terms.ejs");
+})
+
 
 //Page not Found Error
 app.all("*", (req,res,next) => {

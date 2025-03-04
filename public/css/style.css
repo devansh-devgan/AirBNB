@@ -327,3 +327,11 @@ footer {
 .fa-solid, .fa-brands {
     font-size: 1.5rem;
 }
+
+
+.social {
+    transition: 0.2s;
+}
+.social:hover {
+    color: rgb(255, 61, 92);
+}
