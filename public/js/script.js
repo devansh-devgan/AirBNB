@@ -57,3 +57,4 @@
   function resetFilters() {
     window.location.href = "/listings"; // Redirects to clear filters
   }
+  

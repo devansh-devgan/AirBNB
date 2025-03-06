@@ -7,7 +7,7 @@
         <form action="/login" method="POST" class="needs-validation" novalidate>
             <div class="text mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input id="username" class="form-control" name="username" placeholder="Enter Username" type="text" minlength="2" maxlength="12" required>
+                <input id="username" class="form-control" name="username" placeholder="Enter Username" type="text" minlength="2" maxlength="12" required oninput="this.value = this.value.toLowerCase()">
                 <div class="invalid-feedback">Please Enter Username</div>
             </div>
             <br>

@@ -7,7 +7,7 @@
           </a>
 
           <!-- Navbar Items -->
-          <ul class="navbar-nav me-auto">
+          <ul class="all-bnbs navbar-nav me-auto">
               <li class="nav-item">
                   <a class="nav-link" href="/listings">All BNBs</a>
               </li>
@@ -39,25 +39,47 @@
           <div class="collapse navbar-collapse" id="navbarNav">
           <!-- User Section -->
           <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="/listings/new">AirBNB Your Home</a>
-              </li>
+              
               <% if(!currUser) { %>
-              <li class="nav-item">
-                  <a class="nav-link fw-bold" href="/signup">SignUp</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link fw-bold" href="/login">Login</a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/listings/new">AirBNB Your Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="/signup">SignUp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="/login">Login</a>
+                </li>
               <% } else { %>
-              <li class="nav-item">
-                  <span class="nav-link">Logged In as: <b><%= currUser.username %></b></span>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link fw-bold" href="/logout">Logout</a>
-              </li>
+                <li class="hello-user nav-item">
+                    <span class="hello-user"></span>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/listings/new">AirBNB Your Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="/logout">Logout</a>
+                </li>
               <% } %>
           </ul>
       </div>
   </div>
 </nav>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var currUser = "<%= currUser ? currUser.username : '' %>"; // Set currUser as a string
+    if (currUser) {
+      function dateTime() {
+        var ndate = new Date();
+        var hours = ndate.getHours();
+        var message = (hours < 12 ? 'Good Morning, ' : hours < 18 ? 'Good Afternoon, ' : 'Good Evening, ') + 
+                      "<b>" + currUser + "</b>";
+        $("span.hello-user").html(message);
+      }
+      dateTime();
+    }
+  });
+</script>
