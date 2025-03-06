@@ -24,11 +24,11 @@ body {
 }
 
 .root-h1 {
-    margin-left: 24vw;
+    margin-left: 24.8vw;
 }
 
 .root-h2 {
-    margin-left: 30.6vw;
+    margin-left: 27.6vw;
 }
 
 
@@ -449,12 +449,26 @@ footer {
     position: sticky;
     top: 80px;
     z-index: 1;
-    background-color: whitesmoke;
+    background: rgba(245, 245, 245, 0.8); /* Semi-transparent background */
+    backdrop-filter: blur(8px); /* Blur effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
     padding-top: 1.2rem;
     padding-bottom: 0.4rem;
     padding-left: 40px;
     padding-right: 20px;
 }
+.blur-background {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 80px;
+    z-index: -1;
+    padding-top: 1.2rem;
+    padding-bottom: 0.4rem;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
 .fa-solid, .fa-brands {
     font-size: 1.5rem;
 }
