@@ -5,30 +5,45 @@ body {
     flex-direction: column;
     min-height: 100vh;
 
-    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/v1739576354/AirBNB-BG_ix5gsj.jpg);
+    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/v1741296243/AirBNB-Background_Vertical_jmce9f.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: soft-light;
-    background-color: rgba(236, 236, 236, 0.999);
+    background-color: rgba(236, 236, 236, 0.9);
 }
 
 .root-body {
-    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/v1739576354/AirBNB-BG_ix5gsj.jpg);
+    background-image: url(https://res.cloudinary.com/da4dvgpcx/image/upload/v1741296243/AirBNB-Background_Vertical_jmce9f.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    background-blend-mode: hard-light;
+    /* background-blend-mode: hard-light; */
+
+    position: relative;
+    overflow: hidden;
 }
 
-.root-h1 {
-    margin-left: 24.8vw;
+
+
+.root-h1, .root-h2 {
+    margin-left: 14.5vw;
+
+    position: relative;
+    z-index: 1;
 }
 
-.root-h2 {
-    margin-left: 27.6vw;
+@media (max-width: 1292px) {
+    .root-h1, .root-h2 {
+        margin-left: 10vw;
+    }
+}
+@media (max-width: 1080px) {
+    .root-h1, .root-h2 {
+        margin-left: 6vw;
+    }
 }
 
 
@@ -398,11 +413,95 @@ footer {
 }
 .filter {
     text-align: center;
-    margin-left: 3.6vw;
+    margin-left: 4vw;
     opacity: 0.5;
     transition: 0.4s;
     font-size: 1.06vw;
 }
+@media (max-width: 1440px) {
+    .filter {
+        margin-left: 3.4vw;
+    }
+}
+@media (max-width: 1155px) {
+    .filter {
+        margin-left: 3vw;
+    }
+}
+@media (max-width: 960px) {
+    .filter {
+        margin-left: 2.6vw;
+    }
+    .root-h1, .root-h2 {
+        font-size: 30px;
+    }
+}
+@media (max-width: 888px) {
+    .filter {
+        margin-left: 2.2vw;
+    }
+    .root-h1, .root-h2 {
+        font-size: 24px;
+    }
+}
+@media (max-width: 767px) {
+    .filter {
+        margin-left: 9vw;
+    }
+    .root-body {
+        background-position-x: -55vw;
+    }
+}
+@media (max-width: 680px) {
+    .root-body {
+        background-position-x: -60vw;
+    }
+}
+@media (max-width: 650px) {
+    .root-body {
+        background-position-x: -65vw;
+    }
+}
+@media (max-width: 632px) {
+    .root-body {
+        background-position-x: -70vw;
+    }
+}
+@media (max-width: 619px) {
+    .filter {
+        margin-left: 8vw;
+    }
+    .root-body {
+        background-position-x: -75vw;
+    }
+}
+@media (max-width: 606px) {
+    .root-body {
+        background-position-x: -77vw;
+    }
+}
+@media (max-width: 588px) {
+    .root-body {
+        background-position-x: -2vw;
+    }
+}
+@media (max-width: 541px) {
+    .filter {
+        margin-left: 7vw;
+    }
+}
+@media (max-width: 483px) {
+    .filter {
+        margin-left: 6vw;
+    }
+}
+@media (max-width: 414px) {
+    .filter {
+        margin-left: 5vw;
+    }
+}
+
+
 .filter:hover {
     opacity: 1;
     cursor: pointer;
@@ -428,15 +527,20 @@ footer {
 
 .d-tax {
     margin-bottom: 1rem;
-    margin-left: 5vw;
-    padding-right: 20px;
+    margin-left: 3vw;
+    padding-right: 2vw;
+}
+
+#flexSwitchCheckDefault {
+    padding-right: 10px;
 }
 .form-check-label {
-    margin-left: 0.2rem;
+    margin-left: 0.1rem;
 }
 .form-check-label:hover {
     cursor: pointer;
 }
+
 .form-check-input:hover {
     cursor: pointer;
 }
@@ -454,8 +558,8 @@ footer {
     -webkit-backdrop-filter: blur(8px); /* Safari support */
     padding-top: 1.2rem;
     padding-bottom: 0.4rem;
-    padding-left: 40px;
-    padding-right: 20px;
+    padding-left: 0.1vw;
+    padding-right: 0.1vw;
 }
 .blur-background {
     display: flex;
