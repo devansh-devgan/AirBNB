@@ -4,11 +4,11 @@
     const coordinates = JSON.parse("<%= JSON.stringify(listing.geometry.coordinates) %>");
 </script>
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
             <br>
             <h2><%=listing.title%></h2>
-            <div class="show-card col-8">
-                <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
+            <div class="show-card col-6">
+                <img src="<%= listing.image.url %>" class="card-img-top show-img img-fluid" alt="listing_image">
                 <div class="card-body">
                     Owned by: <b><i><%= listing.owner.username %></i></b>
                     <br><br>
@@ -32,7 +32,7 @@
             <% } %>
             <br>
         </div>
-        <div class="col-8 offset-2">
+        <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
             <hr><br>
             <% if (currUser && !(currUser._id.equals(listing.owner._id))) { %>
                 <div>
@@ -77,7 +77,7 @@
             </div>
             <div class="row">
                 <% for(review of listing.reviews) { %>
-                    <div class="card">
+                    <div class="show-col card col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 mx-auto">
                         <div class="card-body">
                             <h5 class="card-title">@<%= review.author.username %></h5>
                             <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
@@ -97,7 +97,7 @@
             </div>
             <hr><br>
         </div>
-        <div class="col-8 offset-2">
+        <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
             <h3>Where You'll Be</h3>
             <br>
             <div id="map"></div>
