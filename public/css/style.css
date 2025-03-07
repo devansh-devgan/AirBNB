@@ -87,7 +87,7 @@ h4, h5 {
 
 
 .navbar {
-    min-height: 80px;
+    min-height: 90px;
     background-color: whitesmoke;
 }
 
@@ -248,6 +248,26 @@ footer {
 .card-body {
     padding: 0 !important;
     margin: 1.2rem;
+    width: 100%;
+}
+@media (max-width: 575px) {
+    .card-body {
+        width: 85%;
+    }
+}
+@media (max-width: 575px) {
+    #comment {
+        width: 90%;
+    }
+}
+@media (max-width: 575px) {
+    .review-body {
+        width: 85%;
+    }
+}
+
+.review {
+    padding-left: 1.2rem;
 }
 
 .card_text p {
@@ -379,9 +399,9 @@ footer {
     }
 }
 
-.heading {
+/* .heading {
     margin-right: 20vw;
-}
+} */
 
 .del-btn {
     border: none;
@@ -391,14 +411,31 @@ footer {
     height: 30vw;
     margin-bottom: 0;
 }
-
-.show-card {
-    width: 49vw;
+@media (max-width: 991px) {
+    .show-img {
+        height: 40vw;
+    }
+}
+@media (max-width: 767px) {
+    .show-img {
+        height: 50vw;
+    }
 }
 @media (max-width: 575px) {
+    .show-img {
+        height: 80vw;
+        width: 95vw !important;
+    }
+}
+
+
+.show-card {
+    width: 100%;
+}
+
+@media (max-width: 575px) {
     .show-col {
-        margin-left: 10vw;
-        width: 85vw
+        margin-left: 3vw;
     }
 }
 
@@ -407,7 +444,7 @@ footer {
 }
 
 .btn-r {
-    padding-left: 9px;
+    padding-left: 18px;
 }
 
 #togglePassword:hover {
@@ -418,7 +455,24 @@ footer {
 
 #map {
     height: 30vw;
-    width: 49vw;
+    width: 100%;
+    border-radius: 10px;
+}
+@media (max-width: 991px) {
+    #map {
+        height: 40vw;
+    }
+}
+@media (max-width: 767px) {
+    #map {
+        height: 50vw;
+    }
+}
+@media (max-width: 575px) {
+    #map {
+        height: 80vw;
+        width: 95vw !important;
+    }
 }
 
 /* Filters */

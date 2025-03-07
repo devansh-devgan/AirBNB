@@ -6,10 +6,10 @@
 </script>
     <div class="row">
         <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-            <br>
+            <br><br><br>
             <h2><%=listing.title%></h2>
-            <div class="show-card col-6">
-                <img src="<%= listing.image.url %>" class="card-img-top show-img img-fluid" alt="listing_image">
+            <div class="show-card">
+                <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
                 <div class="card-body">
                     Owned by: <b><i><%= listing.owner.username %></i></b>
                     <br><br>
@@ -39,7 +39,7 @@
                 <div>
                     <h3>Write a Review</h3>
                     <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
-                        <div class="mb-3 mt-3">
+                        <div class="review mb-3 mt-3">
                             <label for="review[rating]" class="form-label">Rating</label>
                             <fieldset class="starability-grow">
                                 <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
@@ -55,7 +55,7 @@
                                 <label for="first-rate5" title="Amazing">5 stars</label>
                             </fieldset>
                         </div>
-                        <div class="mb-3 mt-3">
+                        <div class="review mb-3 mt-3">
                             <label for="comment" class="form-label">Comments</label>
                             <textarea class="form-control" name="review[comment]" id="comment" cols="30" rows="5" required></textarea>
                             <div class="invalid-feedback">Please add some comments for Review</div>
@@ -71,14 +71,14 @@
             <% } %>
             <h3>Reviews</h3>
             <br>
-            <div>
+            <div class="review">
                 <% if(listing.reviews.length===0) { %>
                     <h5>No Reviews Yet...</h5>
                 <% } %>
             </div>
-            <div class="row">
+            <div class="row review">
                 <% for(review of listing.reviews) { %>
-                    <div class="show-col card col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 mx-auto">
+                    <div class="show-col review-body card col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
                         <div class="card-body">
                             <h5 class="card-title">@<%= review.author.username %></h5>
                             <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
@@ -86,12 +86,12 @@
                         </div>
                     </div>
                     <% if (currUser && review.author.equals(currUser._id)) { %>
-                        <div>
+                        
                             <form class="btn-r" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-sm btn-dark del-btn">Delete</button>
                             </form>
                             <br>
-                        </div>
+                        
                     <% } %>
                     <br>
                 <% } %>
