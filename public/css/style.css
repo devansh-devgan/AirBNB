@@ -68,6 +68,7 @@ img {
 
 .text {
     min-width: 250px;
+    width: 25vw;
     field-sizing: content;
 }
 
@@ -152,7 +153,7 @@ nav, footer {
     max-width: 100%;
 }
 .navbar-toggler {
-    margin-right: 15px;
+    margin: 0 15px 6px 0;
 }
 .container-fluid {
     padding: 0;
@@ -360,11 +361,26 @@ footer {
     .search-input {
         width: 6vw;
     }
+    .heading {
+        font-size: 4vw;
+    }
 }
 @media (max-width: 767px) {
     .d-md-flex {
         margin-left: 6vw;
     }
+    .heading {
+        font-size: 6vw;
+    }
+}
+@media (max-width: 600px) {
+    .heading {
+        font-size: 8vw;
+    }
+}
+
+.heading {
+    margin-right: 20vw;
 }
 
 .del-btn {
@@ -483,6 +499,9 @@ footer {
 @media (max-width: 588px) {
     .root-body {
         background-position-x: -2vw;
+    }
+    .root-h1, .root-h2 {
+        margin-left: 24vw;
     }
 }
 @media (max-width: 541px) {
