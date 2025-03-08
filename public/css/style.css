@@ -113,10 +113,6 @@ h4, h5 {
       width: 100%;
       z-index: 1050; /* Ensure it's above other elements */
     }
-  
-    .navbar {
-      position: relative; /* Ensure proper stacking */
-    }
   }
 
 
@@ -645,7 +641,7 @@ footer {
     display: flex;
     align-items: center;
     position: sticky;
-    top: 80px;
+    top: 90px;
     z-index: 1;
     background: rgba(245, 245, 245, 0.8); /* Semi-transparent background */
     backdrop-filter: blur(8px); /* Blur effect */
