@@ -58,3 +58,14 @@
     window.location.href = "/listings"; // Redirects to clear filters
   }
   
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".show-img").forEach(img => {
+      img.addEventListener("click", function () {
+        const fullscreenImg = document.createElement("div");
+        fullscreenImg.innerHTML = `<div class="fullscreen-overlay" onclick="this.classList.add('fade-out'); setTimeout(() => this.remove(), 300)">
+                                      <img src="${this.src}" class="fullscreen-img fade-in">
+                                   </div>`;
+        document.body.appendChild(fullscreenImg);
+      });
+    });
+  });

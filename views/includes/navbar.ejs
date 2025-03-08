@@ -82,4 +82,19 @@
       dateTime();
     }
   });
+
+  //navbar collapse working
+  $(document).ready(function () {
+    // Close navbar when clicking outside, but only when toggler is visible
+    $(document).click(function (event) {
+      let isNavbarOpen = $(".navbar-collapse").hasClass("show"); // Check if navbar is open
+      let isClickInsideNavbar = $(event.target).closest(".navbar").length > 0;
+      let isTogglerVisible = $(".navbar-toggler").is(":visible"); // Check if toggler is visible
+
+      if (isNavbarOpen && !isClickInsideNavbar && isTogglerVisible) {
+        $(".navbar-collapse").collapse("hide"); // Close the navbar
+        event.preventDefault(); // Stop click event propagation
+      }
+    });
+  });
 </script>

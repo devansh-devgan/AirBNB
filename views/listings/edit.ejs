@@ -1,26 +1,26 @@
 <% layout("/layouts/boilerplate.ejs") %>
     <div class="row">
-        <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-            <br>
+        <div class="edit show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+            <br><br>
             <h3>Edit this Listing</h3>
             <br>
             <form method="post" action="/listings/<%=listing._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input class="text form-control" name="listing[title]" placeholder="Enter Title" value="<%=listing.title%>" type="text" maxlength="30" required>
+                    <input class="form-control" name="listing[title]" placeholder="Enter Title" value="<%=listing.title%>" type="text" maxlength="30" required>
                     <div class="invalid-feedback">Please Enter a Title</div>
                 </div>
                 <br>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="text form-control" name="listing[description]" placeholder="Enter Description" required><%=listing.description%></textarea>
+                    <textarea class="form-control" name="listing[description]" placeholder="Enter Description" required><%=listing.description%></textarea>
                     <div class="invalid-feedback">Please Enter a Description</div>
                 </div>
                 <br>
                 <div class="mb-3">
                     Original Image
                     <br>
-                    <img src="<%= originalImageUrl %>">
+                    <img class="edit-img" src="<%= originalImageUrl %>">
                 </div>
                 <br>
                 <div class="mb-3">
@@ -62,3 +62,17 @@
             </form>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll(".edit-img").forEach(img => {
+            img.addEventListener("click", function () {
+              const fullscreenImg = document.createElement("div");
+              fullscreenImg.innerHTML = `<div class="fullscreen-overlay" onclick="this.classList.add('fade-out'); setTimeout(() => this.remove(), 300)">
+                                            <img src="${this.src}" class="fullscreen-img fade-in">
+                                         </div>`;
+              document.body.appendChild(fullscreenImg);
+            });
+          });
+        });
+    </script>
