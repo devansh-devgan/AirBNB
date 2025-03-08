@@ -136,7 +136,11 @@ h4, h5 {
 .hello-user {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
-    padding-right: 0.5rem;
+}
+@media (min-width: 992px) {
+    .hello-user {
+        padding-right: 0.2rem;
+    }
 }
 
 .nav-link {
@@ -719,3 +723,15 @@ footer {
     opacity: 0 !important;
     transition: opacity 0.3s ease-in-out;
   }
+
+
+  .navNavBar {
+    padding-right: 12px;
+  }
+  @media (max-width: 991px) { /* Apply only when navbar is collapsed */
+    .navNavBar {
+      text-align: right; /* Align text inside */
+      width: 100%; /* Ensure it takes full width */
+    }
+  }
+  
