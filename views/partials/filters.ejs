@@ -17,7 +17,7 @@
             <div class="filter <%= category.name === selectedCategory ? 'active-filter' : '' %>" 
                  onclick="filterListings('<%= category.name %>')">
                 <div><i class="<%= category.icon %>"></i></div>
-                <p><%= category.name %></p>
+                <p class="category-name"><%= category.name %></p>
             </div>
         <% }) %>
     </div>

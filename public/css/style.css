@@ -542,10 +542,16 @@ footer {
     .filter {
         margin-left: 3.4vw;
     }
+    .category-name {
+        font-size: 1.12vw;
+    }
 }
 @media (max-width: 1155px) {
     .filter {
         margin-left: 3vw;
+    }
+    .category-name {
+        font-size: 1.18vw;
     }
 }
 @media (max-width: 960px) {
@@ -555,6 +561,12 @@ footer {
     .root-h1, .root-h2 {
         font-size: 30px;
     }
+    .form-check-label {
+        font-size: 1.5vw;
+    }
+    .category-name {
+        font-size: 1.22vw;
+    }
 }
 @media (max-width: 888px) {
     .filter {
@@ -563,33 +575,63 @@ footer {
     .root-h1, .root-h2 {
         font-size: 24px;
     }
+    .form-check-label {
+        font-size: 1.4vw;
+    }
+    .category-name {
+        font-size: 1.32vw;
+    }
 }
 @media (max-width: 767px) {
     .filter {
-        margin-left: 9vw;
+        margin-left: 8vw;
     }
     .root-body {
         background-position-x: -55vw;
+    }
+    .form-check-label {
+        font-size: 1.5vw;
+    }
+    .category-name {
+        font-size: 1.7vw;
     }
 }
 @media (max-width: 680px) {
     .root-body {
         background-position-x: -60vw;
     }
+    .form-check-label {
+        font-size: 1.6vw;
+    }
+    .category-name {
+        font-size: 1.8vw;
+    }
 }
 @media (max-width: 650px) {
     .root-body {
         background-position-x: -65vw;
     }
+    .form-check-label {
+        font-size: 1.55vw;
+    }
+    .category-name {
+        font-size: 1.9vw;
+    }
 }
 @media (max-width: 632px) {
+    .filter {
+        margin-left: 7vw;
+    }
     .root-body {
         background-position-x: -70vw;
+    }
+    .category-name {
+        font-size: 1.93vw;
     }
 }
 @media (max-width: 619px) {
     .filter {
-        margin-left: 8vw;
+        margin-left: 7vw;
     }
     .root-body {
         background-position-x: -75vw;
@@ -599,28 +641,80 @@ footer {
     .root-body {
         background-position-x: -77vw;
     }
+    .category-name {
+        font-size: 1.96vw;
+    }
 }
 @media (max-width: 588px) {
+    .filter {
+        margin-left: 6.3vw;
+    }
     .root-body {
         background-position-x: -2vw;
     }
     .root-h1, .root-h2 {
         margin-left: 24vw;
     }
+    .form-check-label {
+        font-size: 1.77vw;
+    }
+    .category-name {
+        font-size: 2.2vw;
+    }
+}
+@media (max-width: 575px) {
+    .filter {
+        margin-left: 5.5vw;
+    }
+    .form-check-label {
+        font-size: 1.7vw;
+    }
+    .category-name {
+        font-size: 2.4vw;
+    }
+}
+@media (max-width: 550px) {
+    .airbnb-logo {
+        width: 40px;
+        overflow: hidden;
+        display: inline-block;
+        margin-right: 10px;
+    }
 }
 @media (max-width: 541px) {
     .filter {
-        margin-left: 7vw;
+        margin-left: 4.8vw;
+    }
+    .form-check-label {
+        font-size: 1.66vw;
+    }
+    .category-name {
+        font-size: 2.55vw;
     }
 }
 @media (max-width: 483px) {
     .filter {
-        margin-left: 6vw;
+        margin-left: 3.6vw;
+    }
+    .form-check-label {
+        font-size: 1.8vw;
+    }
+    .category-name {
+        font-size: 2.8vw;
+    }
+    .all-bnbs {
+        display: none;
     }
 }
 @media (max-width: 414px) {
     .filter {
-        margin-left: 5vw;
+        margin-left: 2.2vw;
+    }
+    .form-check-label {
+        font-size: 2.2vw;
+    }
+    .category-name {
+        font-size: 3.06vw;
     }
 }
 
