@@ -12,6 +12,10 @@ body {
     background-size: cover;
     background-blend-mode: soft-light;
     background-color: rgba(236, 236, 236, 0.9);
+
+    opacity: 0;
+    animation: fadeIn 1s forwards;  
+    transition: opacity 1s ease-in-out;
 }
 
 .root-body {
@@ -20,10 +24,35 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    /* background-blend-mode: hard-light; */
 
     position: relative;
     overflow: hidden;
+
+    opacity: 0;
+    animation: fadeIn 1s forwards;  
+    transition: opacity 1s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* When page loads, fade in */
+body > *.fade-in {
+    opacity: 1;
+}
+
+/* When navigating away, fade out */
+body > *.fade-out {
+    opacity: 0;
 }
 
 
