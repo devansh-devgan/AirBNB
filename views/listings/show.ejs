@@ -5,12 +5,12 @@
     const coordinates = JSON.parse("<%= JSON.stringify(listing.geometry.coordinates) %>");
 </script>
     <div class="row">
-        <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-            <br><br><br>
-            <h2><%=listing.title%></h2>
+        <div class="card-blur show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+            <br>
+            <h2 class="review-shift"><%=listing.title%></h2>
             <div class="show-card">
                 <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
-                <div class="card-body">
+                <div class="listing-details">
                     Owned by: <b><i><%= listing.owner.username %></i></b>
                     <br><br>
                     <%=listing.description%> <br><br>
@@ -31,12 +31,12 @@
                     </form>
                 </div>
             <% } %>
-            <br>
+            
         </div>
-        <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-            <hr><br>
+        <div class="card-blur card-blur-review col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+            <br>
             <% if (currUser && !(currUser._id.equals(listing.owner._id))) { %>
-                <div>
+                <div class="review-shift">
                     <h3>Write a Review</h3>
                     <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
                         <div class="review mb-3 mt-3">
@@ -57,26 +57,30 @@
                         </div>
                         <div class="review mb-3 mt-3">
                             <label for="comment" class="form-label">Comments</label>
-                            <textarea class="form-control" name="review[comment]" id="comment" cols="30" rows="5" required></textarea>
+                            <textarea class="form-control comment" name="review[comment]" id="comment" cols="30" rows="5" required></textarea>
                             <div class="invalid-feedback">Please add some comments for Review</div>
                         </div>
                         <br>
                         <div class="btn-r">
                             <button class="btn btn-dark btn-prop">Submit</button>
                         </div>
-                        <br>
+                        <br><br>
                     </form>
                     <hr><br>
                 </div>
             <% } %>
-            <h3>Reviews</h3>
-            <br>
-            <div class="review">
-                <% if(listing.reviews.length===0) { %>
-                    <h5>No Reviews Yet...</h5>
-                <% } %>
+            <div>
+                <h3 class="review-shift">Reviews</h3>
+                
+                <div class="review review-shift">
+                    <% if(listing.reviews.length===0) { %>
+                        <br>
+                        <h5>No Reviews Yet...</h5>
+                    <% } %>
+                </div>
+                <br>
             </div>
-            <div class="row review">
+            <div class="row review review-shift">
                 <% for(review of listing.reviews) { %>
                     <div class="show-col review-body card col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
                         <div class="card-body">
@@ -96,9 +100,10 @@
                     <br>
                 <% } %>
             </div>
-            <hr><br>
+            <br>
         </div>
         <div class="show-col col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+            <br>
             <h3>Where You'll Be</h3>
             <br>
             <div id="map"></div>
