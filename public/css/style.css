@@ -11,7 +11,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: soft-light;
-    background-color: rgba(236, 236, 236, 0.9);
+    background-color: rgba(236, 236, 236, 0.999);
 
     opacity: 0;
     animation: fadeIn 1s forwards;  
@@ -24,6 +24,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+    background-color: rgba(236, 236, 236, 0.936);
 
     position: relative;
     overflow: hidden;
