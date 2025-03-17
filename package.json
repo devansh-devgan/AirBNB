@@ -4,9 +4,10 @@
   },
   "name": "airbnb",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "build": "echo 'No build step required'"
+    "build": "echo 'No build step required'",
+    "start": "node server"
   },
   "keywords": [],
   "author": "",
