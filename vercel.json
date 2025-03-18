@@ -6,11 +6,11 @@
         "use": "@vercel/node"
       },
       {
-        "src": "controllers//*.js",
+        "src": "controllers/listings.js",
         "use": "@vercel/node"
       },
       {
-        "src": "init//*.js",
+        "src": "controllers/users.js",
         "use": "@vercel/node"
       },
       {
@@ -18,7 +18,11 @@
         "use": "@vercel/node"
       },
       {
-        "src": "routes//*.js",
+        "src": "routes/listing.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "routes/user.js",
         "use": "@vercel/node"
       },
       {
