@@ -4,7 +4,7 @@ module.exports.signupPage = (req,res) => {
     // Check if user is logged in with Passport.js
     const isLoggedIn = req.isAuthenticated && req.isAuthenticated();
     if (isLoggedIn) {
-        let redirectTo = '/listings';
+        let redirectTo = '/';
         // Check the referer, avoiding the signup page
         const referer = req.get('Referer');
         if (referer && !referer.includes('/signup')) {
@@ -44,7 +44,7 @@ module.exports.loginPage = (req,res) => {
     // Check if user is logged in with Passport.js
     const isLoggedIn = req.session && req.session.passport && req.session.passport.user;
     if (isLoggedIn) {        
-        let redirectTo = '/listings';
+        let redirectTo = '/';
         // If we have a stored redirect URL in the session, use that
         if (req.session.redirectUrl) {
             redirectTo = req.session.redirectUrl;
