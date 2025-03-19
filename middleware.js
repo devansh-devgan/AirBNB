@@ -8,7 +8,6 @@ const {listingSchema, reviewSchema} = require("./schema.js");
 module.exports.isLoggedIn = (req,res,next) => {
     if(!req.isAuthenticated()) {
         if (req.originalUrl === '/listings/new') {
-            console.log("Saving redirect URL:", req.originalUrl);
             req.session.redirectUrl = req.originalUrl;
         }
         req.flash("error", "Login to add you BNB");

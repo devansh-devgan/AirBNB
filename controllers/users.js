@@ -4,7 +4,7 @@ module.exports.signupPage = (req,res) => {
     // Check if user is logged in with Passport.js
     const isLoggedIn = req.isAuthenticated && req.isAuthenticated();
     if (isLoggedIn) {
-        let redirectTo = '/';
+        let redirectTo = '/listings';
         // Check the referer, avoiding the signup page
         const referer = req.get('Referer');
         if (referer && !referer.includes('/signup')) {
@@ -44,7 +44,7 @@ module.exports.loginPage = (req,res) => {
     // Check if user is logged in with Passport.js
     const isLoggedIn = req.session && req.session.passport && req.session.passport.user;
     if (isLoggedIn) {        
-        let redirectTo = '/';
+        let redirectTo = '/listings';
         // If we have a stored redirect URL in the session, use that
         if (req.session.redirectUrl) {
             redirectTo = req.session.redirectUrl;
@@ -73,21 +73,12 @@ module.exports.loginPage = (req,res) => {
 module.exports.loginRequest = async(req,res) => {
     req.flash("success", "Welcome Back to AirBNB");
     res.locals.currUser = req.user;
-    
-    // Log the session data to see what's going on
-    console.log("Session before:", req.session);
-    
-    // Get redirect URL from session or form
+
     const redirectUrl = req.session.redirectUrl || req.body.referer || "/listings";
     
-    // Force clear the redirectUrl
     req.session.redirectUrl = null;
     delete req.session.redirectUrl;
-    
-    console.log("Session after:", req.session);
-    console.log("Redirecting to:", redirectUrl);
-    
-    // Force save the session
+
     req.session.save((err) => {
         if (err) {
             console.error("Error saving session:", err);
@@ -97,10 +88,14 @@ module.exports.loginRequest = async(req,res) => {
 }
 
 module.exports.logout = (req,res,next) => {
-    const refererValue = req.get('Referer');
+    let refererValue = req.get('Referer');
 
-    req.session.redirectUrl = null;
-    delete req.session.redirectUrl;
+    if (req.session) {
+        delete req.session.redirectUrl;
+    }
+    if (refererValue && refererValue.includes('/listings/new')) {
+        refererValue = "/listings";
+    }
 
     req.logout((err) => {
         if(err){
