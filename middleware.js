@@ -7,15 +7,9 @@ const {listingSchema, reviewSchema} = require("./schema.js");
 
 module.exports.isLoggedIn = (req,res,next) => {
     if(!req.isAuthenticated()) {
-        // Store the current URL as redirectUrl only if it's not a login/logout related page
-        if (!req.originalUrl.includes('/login') && 
-            !req.originalUrl.includes('/logout') && 
-            !req.originalUrl.includes('/signup')) {
-            
+        if (req.originalUrl === '/listings/new') {
+            console.log("Saving redirect URL:", req.originalUrl);
             req.session.redirectUrl = req.originalUrl;
-            
-            // Save the session explicitly to ensure changes are persisted
-            req.session.save();
         }
         req.flash("error", "Login to add you BNB");
         return res.redirect("/login");

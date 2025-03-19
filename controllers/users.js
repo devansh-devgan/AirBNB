@@ -1,16 +1,5 @@
 const User = require("../models/user.js");
 
-app.use((req, res, next) => {
-    // Clear redirectUrl if we're not on a protected route
-    // and we're not on the login page
-    if (req.path !== '/login' && 
-        req.path !== '/signup' && 
-        !req.path.startsWith('/listings/new')) {
-        delete req.session.redirectUrl;
-    }
-    next();
-});
-
 module.exports.signupPage = (req,res) => {
     // Check if user is logged in with Passport.js
     const isLoggedIn = req.isAuthenticated && req.isAuthenticated();
@@ -84,19 +73,35 @@ module.exports.loginPage = (req,res) => {
 module.exports.loginRequest = async(req,res) => {
     req.flash("success", "Welcome Back to AirBNB");
     res.locals.currUser = req.user;
-    let redirectUrl = req.session.redirectUrl;
-    if (!redirectUrl) {
-        redirectUrl = req.body.referer || "/listings";
-    }
+    
+    // Log the session data to see what's going on
+    console.log("Session before:", req.session);
+    
+    // Get redirect URL from session or form
+    const redirectUrl = req.session.redirectUrl || req.body.referer || "/listings";
+    
+    // Force clear the redirectUrl
+    req.session.redirectUrl = null;
     delete req.session.redirectUrl;
-    req.session.save(() => {
+    
+    console.log("Session after:", req.session);
+    console.log("Redirecting to:", redirectUrl);
+    
+    // Force save the session
+    req.session.save((err) => {
+        if (err) {
+            console.error("Error saving session:", err);
+        }
         res.redirect(redirectUrl);
     });
 }
 
 module.exports.logout = (req,res,next) => {
     const refererValue = req.get('Referer');
+
+    req.session.redirectUrl = null;
     delete req.session.redirectUrl;
+
     req.logout((err) => {
         if(err){
             return next(err);
