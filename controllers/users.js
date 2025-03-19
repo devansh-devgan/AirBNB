@@ -62,6 +62,7 @@ module.exports.loginPage = (req,res) => {
     // Only reach here if user is not logged in
     const referer = req.get('Referer');
     let redirectUrl = req.session.redirectUrl;
+    delete req.session.redirectUrl;
     if (redirectUrl === "/listings/new") {
         res.render("users/login.ejs", { referer: redirectUrl });
     } else {
@@ -80,7 +81,7 @@ module.exports.loginRequest = async(req,res) => {
 
 module.exports.logout = (req,res,next) => {
     const refererValue = req.get('Referer');
-
+    delete req.session.redirectUrl;
     req.logout((err) => {
         if(err){
             return next(err);
