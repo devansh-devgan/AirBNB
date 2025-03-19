@@ -73,10 +73,14 @@ module.exports.loginPage = (req,res) => {
 module.exports.loginRequest = async(req,res) => {
     req.flash("success", "Welcome Back to AirBNB");
     res.locals.currUser = req.user;
-
-    // Get referer from form submission instead of session
-    let redirectUrl = req.body.referer || "/listings";
-    res.redirect(redirectUrl);
+    let redirectUrl = req.session.redirectUrl;
+    if (!redirectUrl) {
+        redirectUrl = req.body.referer || "/listings";
+    }
+    delete req.session.redirectUrl;
+    req.session.save(() => {
+        res.redirect(redirectUrl);
+    });
 }
 
 module.exports.logout = (req,res,next) => {
