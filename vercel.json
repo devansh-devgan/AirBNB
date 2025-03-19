@@ -1,47 +1,15 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "app.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "controllers/listings.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "controllers/users.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "models//*.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "routes/listing.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "routes/user.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "utils//*.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "public/",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "views//*.ejs",
-        "use": "@vercel/static"
-      }
+        {
+            "src": "app.js",
+            "use": "@vercel/node"
+        }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/app.js"
-      }
+        {
+            "src": "/(.*)",
+            "dest": "/app.js"
+        }
     ]
-  }
+}
