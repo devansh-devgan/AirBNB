@@ -1,5 +1,16 @@
 const User = require("../models/user.js");
 
+app.use((req, res, next) => {
+    // Clear redirectUrl if we're not on a protected route
+    // and we're not on the login page
+    if (req.path !== '/login' && 
+        req.path !== '/signup' && 
+        !req.path.startsWith('/listings/new')) {
+        delete req.session.redirectUrl;
+    }
+    next();
+});
+
 module.exports.signupPage = (req,res) => {
     // Check if user is logged in with Passport.js
     const isLoggedIn = req.isAuthenticated && req.isAuthenticated();
