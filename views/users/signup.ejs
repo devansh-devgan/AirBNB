@@ -6,6 +6,7 @@
         <h1 class="heading">SignUp</h1>
         <br><br>
         <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <input type="hidden" name="referer" value="<%= referer %>">
             <div class="text mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input id="username" class="form-control" name="username" placeholder="Enter Username" type="text" minlength="2" maxlength="12" required oninput="this.value = this.value.toLowerCase()">
