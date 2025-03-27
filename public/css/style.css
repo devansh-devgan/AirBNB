@@ -92,6 +92,16 @@ a {
     color: rgb(80, 40, 40);
 }
 
+.l-s a {
+    text-decoration: none;
+    color: rgb(255, 61, 92);
+}
+
+.l-s a:hover {
+    text-decoration: underline;
+    color: rgb(80, 40, 40);
+}
+
 .b-user {
     color: rgb(255, 61, 92);
 }
